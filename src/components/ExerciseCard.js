@@ -4,7 +4,7 @@ import { Button, Stack, Typography } from '@mui/material'
 import { textTransform } from '@mui/system'
 
 const ExerciseCard = ({ exercise }) => {
-    console.log(exercise)
+    
     return (
         <Link className="exercise-card" underline="none" to={`/exercise/${exercise.id}`}>
             <img src={exercise.gifUrl}
