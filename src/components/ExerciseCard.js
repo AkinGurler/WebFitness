@@ -17,7 +17,7 @@ const ExerciseCard = ({ exercise }) => {
                 <Button sx={{
                     ml:'21px', 
                     color :'#fff',
-                    background:'#ffa9a9',
+                    background:'#b8860b',
                     fontSize:'14px',
                     borderRadius:'20px',//like a border slope
                     textTransform:'capitalize'
@@ -27,7 +27,7 @@ const ExerciseCard = ({ exercise }) => {
                 <Button sx={{
                     ml:'21px', 
                     color :'#fff',
-                    background:'#fcc757',
+                    background:'#ffa9a9',
                     fontSize:'14px',
                     borderRadius:'20px',//like a border slope
                     textTransform:'capitalize'
@@ -35,7 +35,7 @@ const ExerciseCard = ({ exercise }) => {
                     {exercise.target}
                 </Button>
             </Stack>
-            <Typography ml="21px" color="000" fontWeight="bold" fontSize="20px"
+            <Typography ml="21px" color="#000000" fontWeight="bold" fontSize="20px"
             pb="10px"  mt="11px" textTransform="capitalize">
                 {exercise.name}
             </Typography>

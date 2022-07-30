@@ -44,7 +44,7 @@ const Exercises = ({exercises,setExercises,bodyPart}) => {
     mt="50px"
     p="20px"
     >
-      <Typography variant="h4" mb="46px">
+      <Typography align='center' variant="h4" mb="46px" fontWeight={700}>
         Results
       </Typography>
       <Stack direction="row"
