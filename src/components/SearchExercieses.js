@@ -5,19 +5,28 @@ import { exerciseOptions, fetchData } from '../utils/fetchData'
 import HorizontalScrollbar from './HorizontalScrollbar'
 
 
-const SearchExercieses = ({setExercises,bodyPart,setBodyPart}) => {
+const SearchExercieses = ({setExercises,bodyPart,setBodyPart,equipment,setEquipment}) => {
   const [search, setSearch] = useState('')
   
   const [bodyParts,setBodyParts]=useState([])
+  const [equipments, setEquipments] = useState([])
+
+  
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData(
         'https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions)
         setBodyParts(['all', ...bodyPartsData])
+        const equipmentData = await fetchData(
+          'https://exercisedb.p.rapidapi.com/exercises/equipmentList', exerciseOptions)
+          setEquipments(['all' , ...equipmentData])
     }
     fetchExercisesData();
   }, [])
+ 
   const handleSearch = async () => {
+
+    
   
     if (search) {
       const exercisesData = await fetchData(
@@ -79,6 +88,9 @@ const SearchExercieses = ({setExercises,bodyPart,setBodyPart}) => {
           Search
         </Button>
       </Box>
+      <Typography align='left' variant="h4" mb="46px" fontWeight={400}>
+        You Can Choose a Body Part Without Search
+      </Typography>
       <Box sx={{
         position:'relative',
         width:'100%',
@@ -90,6 +102,24 @@ const SearchExercieses = ({setExercises,bodyPart,setBodyPart}) => {
         setBodyPart={setBodyPart} 
         bodyPart={bodyPart}
         isBodyParts />
+        
+      </Box>
+      <Typography align='left' variant="h4" mb="46px" fontWeight={400}>
+        Select Equipment
+      </Typography>
+      <Box sx={{
+        marginTop:"20px",
+        position:'relative',
+        width:'100%',
+        p:'20px'
+      }} >
+      
+        <HorizontalScrollbar data={equipments} 
+        equipments
+        setEquipment={setEquipment} 
+        equipment={equipment}
+        isEquipments />
+        
       </Box>
 
     </Stack>

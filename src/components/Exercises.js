@@ -5,7 +5,9 @@ import { exerciseOptions,fetchData } from '../utils/fetchData'
 import ExerciseCard from './ExerciseCard'
 
 
-const Exercises = ({exercises,setExercises,bodyPart}) => {
+const Exercises = ({exercises,setExercises,bodyPart,equipment}) => {
+  console.log("exercises:",exercises)
+  console.log("equipment:", equipment)
   const [currentPage, setCurrentPage] = useState(1)
   const exercisesPerPage=9;
 
@@ -26,13 +28,32 @@ const Exercises = ({exercises,setExercises,bodyPart}) => {
         exercisesData=await fetchData(
          ` https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
            exerciseOptions);
+      } 
+      
+     
+      console.log("exercisesDataBefore",exercisesData)
+      const eq=exercisesData.filter(item=>item.equipment===equipment)
+      if(eq.length===0){
+        setExercises(exercisesData)
+      }else if(eq.length>0){
+        setExercises(eq)
+      }else{
+        const newExercises=(exercises.filter(item=>item.equipment===equipment))
+        setExercises(newExercises)
       }
-      setExercises(exercisesData)
+      
+      
+      
+    
+
+      
+     
+    
 
     }
     fetchExercisesData();
    
-  }, [bodyPart])
+  }, [bodyPart,equipment])
   
 
   return (
