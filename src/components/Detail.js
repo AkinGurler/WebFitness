@@ -2,16 +2,52 @@ import React from 'react'
 import { Typography, Stack, Button } from '@mui/material'
 import BodyPartImage from '../assets/icons/body-part.png'
 import TargetImage from '../assets/icons/target.png'
-import EquipmentImage from '../assets/icons/equipment.png'
+import EquipmentImage from '../assets/icons/equipments/equipment.png'
+
+import all from '../assets/icons/bodyparts/all.png'
+import back from '../assets/icons/bodyparts/back.png'
+import cardio from '../assets/icons/bodyparts/cardio.png'
+import chest from '../assets/icons/bodyparts/chest.png'
+import lowerarms from '../assets/icons/bodyparts/lower arms.png'
+import neck from '../assets/icons/bodyparts/neck.png'
+import shoulders from '../assets/icons/bodyparts/shoulders.png'
+import waist from '../assets/icons/bodyparts/waist.png'
+import lowerlegs from '../assets/icons/bodyparts/lower legs.png'
+import upperlegs from '../assets/icons/bodyparts/upper legs.png'
+import upperarms from '../assets/icons/bodyparts/upper arms.png'
+
 
 
 const Detail = ({ exerciseDetail }) => {
+ 
 
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;//object destructuring
 
+    
+
+    const images = {
+        all,
+        back,
+        cardio,
+        chest,
+        neck,
+        shoulders,
+        waist,
+        lowerarms,
+        lowerlegs,
+        upperarms,
+        upperlegs
+      };
+
+      function getImageByKey(key) {
+        var img = key.replace(/\s/g, "");
+
+        return images[img]
+      }
+
   const extraDetail=[
     {
-      icon:BodyPartImage,
+      icon:getImageByKey(bodyPart),
       name:bodyPart
     },
     {
@@ -38,7 +74,7 @@ const Detail = ({ exerciseDetail }) => {
           {name}
         </Typography>
         <Typography  variant='h6'>
-          Making in the right for is very important
+          It is a good Exercise for {target}
         </Typography>
         {extraDetail?.map((item) => (
           <Stack key={item.name} direction="row" gap="24px" alignItems="center">

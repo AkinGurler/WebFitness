@@ -10,7 +10,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
       marginTop: { lg: '200px', xs: '20px' }
     }} p="20px">
       <Typography variant="h4" mb="33px">
-        Watch <span style={{ color: '#ff2625', textTransform: "capitalize" }}>{name}
+        Watch <span style={{ color: '#b8860b', textTransform: "capitalize" }}>{name}
         </span> exercise videos {/* textTransform: "capitalize" :capitalizes initial letters */}
       </Typography>
       <Stack justifyContent="flex-start" flexwrap="wrap" alignItems="center"

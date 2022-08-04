@@ -5,7 +5,7 @@ import { exerciseOptions,fetchData } from '../utils/fetchData'
 import ExerciseCard from './ExerciseCard'
 
 
-const Exercises = ({exercises,setExercises,bodyPart,equipment}) => {
+const Exercises = ({exercises,setExercises,bodyPart,equipment,setEquipment}) => {
   console.log("exercises:",exercises)
   console.log("equipment:", equipment)
   const [currentPage, setCurrentPage] = useState(1)
@@ -30,30 +30,33 @@ const Exercises = ({exercises,setExercises,bodyPart,equipment}) => {
            exerciseOptions);
       } 
       
-     
-      console.log("exercisesDataBefore",exercisesData)
-      const eq=exercisesData.filter(item=>item.equipment===equipment)
-      if(eq.length===0){
-        setExercises(exercisesData)
-      }else if(eq.length>0){
-        setExercises(eq)
-      }else{
-        const newExercises=(exercises.filter(item=>item.equipment===equipment))
-        setExercises(newExercises)
-      }
-      
-      
-      
-    
+        if(equipment=='all'){
+          setExercises(exercisesData)
+        }
+        else{
+          const newExercises=(exercises.filter(item=>item.equipment===equipment ))
+        /*   newExercises=(newExercises.filter(item=>item.bodyPart===bodyPart)) */
+          setExercises(newExercises)
+          
+        }
 
-      
-     
-    
+        return function setEquipmentAll(){
+          setEquipment('all')
+          console.log("son equipment",equipment)
+        }
+        
+       /*    const newExercises=(exercises.filter(item=>item.equipment===equipment))
+          newExercises.filter(item=>item.bodyPart===bodyPart)
+          console.log("newExercises",newExercises)
+          setExercises(newExercises) */
+       
+       
 
     }
     fetchExercisesData();
    
   }, [bodyPart,equipment])
+
   
 
   return (

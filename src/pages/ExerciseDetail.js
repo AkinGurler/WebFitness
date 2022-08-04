@@ -44,7 +44,10 @@ const ExerciseDetail = () => {
       <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
       <SimilarExercises targetMuscleExercises={targetMuscleExercises} 
-      equipmentExercises={equipmentExercises} />
+      equipmentExercises={equipmentExercises}
+      target={exerciseDetail.target}
+      equipment={exerciseDetail.equipment}
+      />
     </Box>
   );
 };

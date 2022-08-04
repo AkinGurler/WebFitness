@@ -4,13 +4,14 @@ import HorizontalScrollbar from './HorizontalScrollbar'
 import Loader from './Loader'
 
 
-const SimilarExercises = ({targetMuscleExercises,equipmentExercises}) => {
+const SimilarExercises = ({targetMuscleExercises,equipmentExercises,target,equipment}) => {
   return (
     <Box sx={{
       mt:{lg:'100px',xs:'0'}
     }}>
-      <Typography variant="h3" mb={5}>
-        Exercises that target the same muscle group 
+      <Typography variant="h3" mb={5}  >
+        Exercises that target <span style={{ color: '#b8860b', textTransform: "capitalize" }}>{target}
+        </span>
       </Typography>
       <Stack sx={{
         p:'2',
@@ -20,8 +21,9 @@ const SimilarExercises = ({targetMuscleExercises,equipmentExercises}) => {
          <HorizontalScrollbar data={targetMuscleExercises}/> : <Loader/>}
       </Stack>
 
-      <Typography variant="h3" mb={5}>
-        Exercises that used the same equipment group 
+      <Typography variant="h3" mb={5}  >
+        Exercises that used the same <span style={{ color: '#b8860b', textTransform: "capitalize" }}>{equipment}
+        </span>
       </Typography>
       <Stack sx={{
         p:'2',
