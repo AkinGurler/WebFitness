@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Stack, Typography } from '@mui/material'
+import { getSelectedExercisesVideos } from '../actions';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-const ExerciseVideos = ({ exerciseVideos, name }) => {
-  
-  console.log({exerciseVideos})
+const ExerciseVideos = () => {
+
+
+  const { id } = useParams();
+  const exerciseDetail = useSelector((state) => state.selectedExercise)
+  const name = exerciseDetail.name
+  const exerciseVideos = useSelector((state) => state.selectedExerciseVideos)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSelectedExercisesVideos(name))
+  }, [name])
+
+
+
   if (!exerciseVideos.length) return "laoding";
   return (
     <Box sx={{
@@ -14,13 +29,13 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         </span> exercise videos {/* textTransform: "capitalize" :capitalizes initial letters */}
       </Typography>
       <Stack justifyContent="flex-start" flexwrap="wrap" alignItems="center"
-      sx={{
-        flexDirection:{lg:'row'},
-        gap:{lg:'110px',xs:'0'}
-      }}
+        sx={{
+          flexDirection: { lg: 'row' },
+          gap: { lg: '110px', xs: '0' }
+        }}
       >
-    {exerciseVideos?.slice(0, 5)?.map((item, index) => (
-      
+        {exerciseVideos?.slice(0, 5)?.map((item, index) => (
+
           <a
             key={index}
             className="exercise-video"

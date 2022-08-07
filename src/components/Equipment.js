@@ -1,11 +1,14 @@
 import React from 'react'
 import { Stack, Typography } from '@mui/material'
 import equipmentImage from '../assets/icons/equipments/equipment.png'
+import { getExercisesWithBodyPart, getExercisesWithEquipment, setSelectedEquipment } from '../actions'
+import {useSelector,useDispatch} from "react-redux"
 
 
-
-const Equipment = ({item, setEquipment, equipment}) => {
-   
+const Equipment = ({item}) => {
+    const bodyPart=useSelector((state)=>state.selectedBodyPart)
+    const equipment=useSelector((state)=>state.selectedEquipment)
+    const dispatch=useDispatch()
 
     // maybe later
     /* const images = {
@@ -44,7 +47,9 @@ const Equipment = ({item, setEquipment, equipment}) => {
                 gap: '47px'
             }}
             onClick={()=>{
-                setEquipment(item);
+                dispatch(setSelectedEquipment(item));
+                
+                
                 window.scrollTo({
                     top:1800,
                     left:'100',

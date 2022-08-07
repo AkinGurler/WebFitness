@@ -11,11 +11,14 @@ import waist from '../assets/icons/bodyparts/waist.png'
 import lowerlegs from '../assets/icons/bodyparts/lower legs.png'
 import upperlegs from '../assets/icons/bodyparts/upper legs.png'
 import upperarms from '../assets/icons/bodyparts/upper arms.png'
+import {useSelector,useDispatch} from "react-redux"
+import {getExercises, getExercisesWithBodyPart, setSelectedBodyPart} from "../actions"
 
 
-const BodyPart = ({item, setBodyPart, bodyPart}) => {
-    
-   
+const BodyPart = ({item}) => {
+    const bodyPart=useSelector((state)=>state.selectedBodyPart)
+    const equipment=useSelector((state)=>state.selectedEquipment)
+    const dispatch=useDispatch()
 
     const images = {
         all,
@@ -53,7 +56,10 @@ const BodyPart = ({item, setBodyPart, bodyPart}) => {
                 gap: '47px'
             }}
             onClick={()=>{
-                setBodyPart(item);
+                dispatch(setSelectedBodyPart(item))
+                
+                /* dispatch(getExercisesWithBodyPart(bodyPart)) */
+                /* setBodyPart(item); */
                 window.scrollTo({
                     top:1800,
                     left:'100',
