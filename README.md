@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Fitness Exercises App
 There are 2 versions of the app related to state management redux and hooks\
 https://fitnessclubdemo.netlify.app/
 ![1](https://user-images.githubusercontent.com/99674716/183413850-e84daaec-6b2a-4bca-8529-7527f78d92b2.png)
