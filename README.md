@@ -1,4 +1,12 @@
 # Getting Started with Create React App
+There are 2 versions of the app related to state management redux and hooks\
+https://fitnessclubdemo.netlify.app/
+![1](https://user-images.githubusercontent.com/99674716/183413850-e84daaec-6b2a-4bca-8529-7527f78d92b2.png)
+
+## Rapid API's
+![api1](https://user-images.githubusercontent.com/99674716/183413865-e40fb903-ae59-4015-b288-ba17567fe7d4.png)
+![api2](https://user-images.githubusercontent.com/99674716/183413866-76e7ccff-8e89-46e3-9792-85e038d707dd.png)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
