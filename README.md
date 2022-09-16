@@ -43,7 +43,7 @@ There are 2 versions of the app related to state management redux and hooks, you
 ## Gainz
 * Using Material UI
 * React Router v6 
-* Making State management with Redux
+* State management with Redux
 * Entegration Api's
 * Pagination with React
 * Making Search Bar 
